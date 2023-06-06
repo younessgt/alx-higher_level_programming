@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 def fizzbuzz():
     for i in range(1, 101):
-       # if i == 100:
-            #print("Buzz ")
         f = int(i % 3)
         b = int(i % 5)
         if f == 0 and b != 0:
