@@ -7,4 +7,4 @@ def uppercase(str):
             sum += c
         else:
             sum += c
-    print(sum)
+    print("{}".format(sum))
