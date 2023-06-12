@@ -22,6 +22,8 @@ listint_t *rev(listint_t **head)
 int is_palindrome(listint_t **head)
 {
 	listint_t *copy;
+	if (head == NULL)
+		return (0);
 	copy = rev(head);
 	if (copy == NULL)
 		return (1);
