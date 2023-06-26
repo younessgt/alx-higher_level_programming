@@ -6,7 +6,7 @@ def safe_print_list(my_list=[], x=0):
     for k in range(x):
         try:
             print(my_list[k], end='')
-        except:
+        except Exception as er:
             break
     print()
     if x <= j:
