@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 def list_division(my_list_1, my_list_2, list_length):
     my_list3 = []
-    lenght = max(len(my_list_1), len(my_list_2))
-    for i in range(lenght):
+    for i in range(list_lenght):
         try:
             value = my_list_1[i] / my_list_2[i]
         except ZeroDivisionError:
