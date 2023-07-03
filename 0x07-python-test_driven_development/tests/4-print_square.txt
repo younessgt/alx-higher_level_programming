@@ -1,0 +1,42 @@
+"This file is a bunch of test_cases for print_square function"
+
+>>> print_square = __import__('4-print_square').print_square
+
+Try this:
+	>>> print_square(3) #doctest: +NORMALIZE_WHITESPACE
+	###
+	###
+	###
+
+	>>> print_square(4) #doctest: +NORMALIZE_WHITESPACE
+        ####
+        ####
+        ####
+	####
+
+	>>> print_square(-1) #doctest: +NORMALIZE_WHITESPACE
+        Traceback (most recent call last):
+        ValueError: size must be >= 0
+
+	>>> print_square("str") #doctest: +NORMALIZE_WHITESPACE
+        Traceback (most recent call last):
+        TypeError: size must be an integer
+
+	>>> print_square(10.5) #doctest: +NORMALIZE_WHITESPACE
+        Traceback (most recent call last):
+        TypeError: size must be an integer
+
+	>>> print_square(None) #doctest: +NORMALIZE_WHITESPACE
+        Traceback (most recent call last):
+        TypeError: size must be an integer
+
+	>>> print_square(0) #doctest: +NORMALIZE_WHITESPACE
+
+	>>> print_square(6 / 2) #doctest: +NORMALIZE_WHITESPACE
+        Traceback (most recent call last):
+        TypeError: size must be an integer
+
+	>>> print_square(int(6 / 2)) #doctest: +NORMALIZE_WHITESPACE
+        ###
+        ###
+        ###	
