@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-""" module containing a class that prevent user from
-creating new instance"""
+""" module containing a class called LockedClass"""
 
 
 class LockedClass:
-    """ prenventing user from creation new instance except if
-    the new instance is called 'first_name'
+    """ prenventing user from creation new instance
+    attributes except for 'first_name'
     """
     __slots__ = ('first_name')
 
