@@ -18,3 +18,13 @@ class Rectangle(BaseGeometry):
         if res1 is None and res2 is None:
             self.__width = width
             self.__height = height
+
+    def area(self):
+        """ method that calculate the area of a rectangle """
+
+        return self.__width * self.__height
+
+    def __str__(self):
+        """ giving the object a human readable string """
+
+        return f"[Rectangle] {self.__width}/{self.__height}"
