@@ -65,10 +65,25 @@ Try this:
 
 """ Testing value with list """
 	
-	>>> bg8 = BaseGeometry()
-        >>> bg8.integer_validator("alx", [1, 12, 4, 5])
+	>>> bg9 = BaseGeometry()
+        >>> bg9.integer_validator("alx", [1, 12, 4, 5])
         Traceback (most recent call last):
         TypeError: alx must be an integer
+
+""" Testing value with tuple """
+
+        >>> bg10 = BaseGeometry()
+        >>> bg10.integer_validator("alx", (1, 12, 4, 5))
+        Traceback (most recent call last):
+        TypeError: alx must be an integer
+
+""" Testing when value equal to zero """
+	
+	>>> bg11 = BaseGeometry()
+        >>> bg11.integer_validator("name", 0)
+        Traceback (most recent call last):
+        ValueError: name must be greater than 0
+	
 
 	
 	
