@@ -1,0 +1,59 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Try this:
+
+""" Testing when passing no argument """
+
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+""" Testing one argument """
+
+	>>> bg1 = BaseGeometry()
+        >>> bg1.integer_validator("")
+        Traceback (most recent call last):
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+""" Testing when name is empty string """
+
+	>>> bg2 = BaseGeometry()
+        >>> bg2.integer_validator("", 10)
+
+""" Testing when value is negative """
+
+	>>> bg3 = BaseGeometry()
+        >>> bg3.integer_validator("name", -18)
+	Traceback (most recent call last):
+	ValueError: name must be greater than 0
+
+""" Testing when value is positive """
+
+        >>> bg4 = BaseGeometry()
+        >>> bg4.integer_validator("name", 18)
+
+""" Testing when value is a float number """
+	
+""" Testing when value is negative """
+
+        >>> bg5 = BaseGeometry()
+        >>> bg5.integer_validator("youness", 12.4)
+        Traceback (most recent call last):
+        TypeError: youness must be an integer
+
+""" Testing float('inf')"""
+	
+	>>> bg6 = BaseGeometry()
+        >>> bg6.integer_validator("alx", float('inf'))
+	Traceback (most recent call last):
+        TypeError: alx must be an integer
+
+""" Testing float('nan')"""
+
+        >>> bg6 = BaseGeometry()
+        >>> bg6.integer_validator("alx", float('nan'))
+        Traceback (most recent call last):
+        TypeError: alx must be an integer
+
+	
