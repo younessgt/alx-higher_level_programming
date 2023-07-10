@@ -94,4 +94,11 @@ Try this:
         >>> bg13.integer_validator("alx", {1, 12, 4, 5})
         Traceback (most recent call last):
         TypeError: alx must be an integer
+
+""" Testing value with bool """
+
+        >>> bg13 = BaseGeometry()
+        >>> bg13.integer_validator("alx", False)
+        Traceback (most recent call last):
+        TypeError: alx must be an integer
 	
