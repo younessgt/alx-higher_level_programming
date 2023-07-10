@@ -97,8 +97,16 @@ Try this:
 
 """ Testing value with bool """
 
-        >>> bg13 = BaseGeometry()
-        >>> bg13.integer_validator("alx", False)
+        >>> bg14 = BaseGeometry()
+        >>> bg14.integer_validator("alx", False)
         Traceback (most recent call last):
         TypeError: alx must be an integer
+
+""" Testing the area method """
 	
+	>>> bg15 = BaseGeometry()
+	>>> bg15.area()
+	Traceback (most recent call last):
+	Exception: area() is not implemented
+
+""" Note : There is no need to repeat bg = BaseGeometry() every time """
