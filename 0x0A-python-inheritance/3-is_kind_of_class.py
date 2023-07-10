@@ -15,3 +15,4 @@ def is_kind_of_class(obj, a_class):
         return True
     else:
         return False
+#or just we can return isinstance(obj, a_class) without if and else
