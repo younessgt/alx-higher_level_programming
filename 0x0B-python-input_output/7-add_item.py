@@ -20,3 +20,6 @@ else:
     for i in range(1, len(argv)):
         load.append(argv[i])
     save_to_json_file(load, filename)
+
+# without using os module we can just use try to check if the file exist
+# and except load = []
