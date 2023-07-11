@@ -2,7 +2,7 @@
 """ Module containing a function called write_file"""
 
 
-def write_file(filename="", text =""):
+def write_file(filename="", text=""):
     """ Function that write into  a file """
 
     with open(filename, 'w') as wf:
