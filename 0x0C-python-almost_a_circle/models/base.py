@@ -14,7 +14,6 @@ class Base:
     def __init__(self, id=None):
         """ constructor """
 
-        #Base.__nb_objects += 1
         if id is not None:
             self.id = id
         else:
