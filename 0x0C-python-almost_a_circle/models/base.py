@@ -63,19 +63,6 @@ class Base:
             return json.loads(json_string)
 
     @classmethod
-    def create(cls, **dictionary):
-        """ creating new instance with given attributes """
-
-        if dictionary is not None:
-            if cls.__name__ == 'Square':
-                new_in = cls(2)
-            elif cls.__name__ == 'Rectangle':
-                new_in = cls(2, 2)
-
-            new_in.update(**dictionary)
-            return new_in
-
-    @classmethod
     def load_from_file(cls):
         """ method that take input form a file
         and return a list of instances"""
@@ -157,3 +144,16 @@ class Base:
                 right(90)
             j += 1
         done()
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ creating new instance with given attributes """
+
+        if dictionary is not None:
+            if cls.__name__ == 'Square':
+                new_in = cls(2)
+            elif cls.__name__ == 'Rectangle':
+                new_in = cls(2, 2)
+
+            new_in.update(**dictionary)
+            return new_in
