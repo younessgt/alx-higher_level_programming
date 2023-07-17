@@ -54,7 +54,7 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             h = Rectangle(1)
         with self.assertRaises(TypeError):
-            h = Rectangle(1,1,1,1,1,1)
+            h = Rectangle(1, 1, 1, 1, 1, 1)
 
     def test_case_area(self):
         """ test cases for area module """

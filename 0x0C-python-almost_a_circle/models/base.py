@@ -14,10 +14,11 @@ class Base:
     def __init__(self, id=None):
         """ constructor """
 
-        Base.__nb_objects += 1
+        #Base.__nb_objects += 1
         if id is not None:
             self.id = id
         else:
+            Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
     @staticmethod
@@ -89,6 +90,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """ saving data to csv file """
         file_name = f"{cls.__name__}.csv"
         with open(file_name, "w") as wf:
             """ creating a csv writer object"""
@@ -105,6 +107,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
+        """ loading data from csv file """
         file_name = cls.__name__ + '.csv'
         final_list = []
         if not os.path.exists(file_name):

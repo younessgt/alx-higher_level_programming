@@ -108,16 +108,16 @@ class TestBase(unittest.TestCase):
         list_di = [{"name": "json", "School": "alx", "graduated": True}]
         with self.assertRaises(TypeError):
             res = Base.from_json_string(list_di)
-        
+
         """ ----------------------------------- --------------------------"""
-        
+
         list_di_str = '[{"name": "json", "School": "alx", "graduated": true}]'
         list_di = [{"name": "json", "School": "alx", "graduated": True}]
         res = Base.from_json_string(list_di_str)
         self.assertEqual(res, list_di)
         self.assertTrue(type(res) == list)
         self.assertTrue(type(res[0]) == dict)
-    
+
         """ ----------------------------------- --------------------------"""
         list_di_str = '[]'
         list_di = []
@@ -170,7 +170,7 @@ class TestBase(unittest.TestCase):
 
         Rectangle.save_to_file(None)
 
-        list_re= Rectangle.load_from_file()
+        list_re = Rectangle.load_from_file()
         self.assertEqual(type(list_re), list)
         self.assertEqual(list_re, [])
 
@@ -179,9 +179,9 @@ class TestBase(unittest.TestCase):
         """ testing empty list"""
         Rectangle.save_to_file([])
 
-        list_re= Rectangle.load_from_file()
+        list_re = Rectangle.load_from_file()
         self.assertEqual(type(list_re), list)
-        self.assertEqual(list_re, [])        
+        self.assertEqual(list_re, [])
 
         """ ----------------------------------- --------------------------"""
 
@@ -191,7 +191,7 @@ class TestBase(unittest.TestCase):
 
         Rectangle.save_to_file([a, b])
 
-        list_re= Rectangle.load_from_file()
+        list_re = Rectangle.load_from_file()
         self.assertEqual(type(list_re), list)
 
         for idx, rect in enumerate(list_re):
@@ -201,3 +201,7 @@ class TestBase(unittest.TestCase):
             if idx == 1:
                 self.assertEqual(str(b), str(rect))
                 self.assertFalse(id(b) == id(rect))
+
+
+if __name__ = "__main__":
+    unittest.main()
