@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ Module containing a class called Base"""
 import json
-import ast
 import os
 import csv
 from turtle import *
@@ -38,6 +37,7 @@ class Base:
         with open(file_name, "w") as wf:
             if list_objs is None or len(list_objs) == 0:
                 # Method 1
+                # import ast
                 # string = cls.to_json_string(None)
                 # convert_string = ast.literal_eval(string)
                 # or eval to convert '[]' into []
