@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 class TestRectangle(unittest.TestCase):
     """ class created """
-    def test_attr(self):
+    def test_attr_rect(self):
 
         """ testing cases for retreiving attributes
         """
@@ -20,21 +20,20 @@ class TestRectangle(unittest.TestCase):
         self.assertTrue(r1.height == 1)
         self.assertTrue(r1.x == 0)
         self.assertTrue(r1.y == 0)
-        self.assertEqual(r1.id, 1)
 
         r2 = Rectangle(10, 21, 1, 7)
         self.assertTrue(r2.width == 10)
         self.assertTrue(r2.height == 21)
         self.assertTrue(r2.x == 1)
         self.assertTrue(r2.y == 7)
-        self.assertEqual(r2.id, 2)
+        self.assertEqual(r2.id - 1, r1.id)
 
         r3 = Rectangle(10, 2, 3, 0)
         self.assertTrue(r3.width == 10)
         self.assertTrue(r3.height == 2)
         self.assertTrue(r3.x == 3)
         self.assertTrue(r3.y == 0)
-        self.assertEqual(r3.id, 3)
+        self.assertEqual(r3.id - 1, r2.id)
 
         r4 = Rectangle(1, 2, 0, 0, 11)
         self.assertTrue(r4.width == 1)
@@ -44,7 +43,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r4.id, 11)
 
         r5 = Rectangle(13, 1)
-        self.assertEqual(r5.id, 5)
+        self.assertEqual(r5.id - 1, r3.id)
 
     def test_args(self):
         """ test case where there is less args """

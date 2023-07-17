@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" testing the module rectangle """
+""" testing the module square """
 from models.square import Square
 import unittest
 from io import StringIO
@@ -20,38 +20,30 @@ class TestSquare(unittest.TestCase):
         self.assertTrue(r1.height == 5)
         self.assertTrue(r1.x == 0)
         self.assertTrue(r1.y == 0)
-        self.assertEqual(r1.id, 1)
 
         r2 = Square(10, 1, 7)
         self.assertTrue(r2.width == 10)
         self.assertTrue(r2.height == 10)
         self.assertTrue(r2.x == 1)
         self.assertTrue(r2.y == 7)
-        self.assertEqual(r2.id, 2)
+        self.assertEqual(r2.id - 1, r1.id)
 
-        r3 = Rectangle(10, 2, 3, 0)
-        self.assertTrue(r3.width == 10)
-        self.assertTrue(r3.height == 2)
-        self.assertTrue(r3.x == 3)
-        self.assertTrue(r3.y == 0)
-        self.assertEqual(r3.id, 3)
-
-        r4 = Rectangle(1, 2, 0, 0, 11)
+        r4 = Square(1, 0, 0, 11)
         self.assertTrue(r4.width == 1)
-        self.assertTrue(r4.height == 2)
+        self.assertTrue(r4.height == 1)
         self.assertTrue(r4.x == 0)
         self.assertTrue(r4.y == 0)
         self.assertEqual(r4.id, 11)
 
-        r5 = Rectangle(13, 1)
-        self.assertEqual(r5.id, 5)
+        r5 = Square(13, 1)
+        self.assertEqual(r5.id - 1, r2.id)
 
     def test_case_area(self):
         """ test cases for area module """
-        a = Rectangle(5, 10)
-        self.assertEqual(a.area(), 50)
+        a = Square(5)
+        self.assertEqual(a.area(), 25)
 
-        b = Rectangle(10, 10)
+        b = Square(10)
         self.assertEqual(b.area(), 100)
 
     def test_type_value(self):
@@ -61,68 +53,54 @@ class TestSquare(unittest.TestCase):
         - Testing cases -> [int, float, float('nan'), float('inf'),
         string, list, tuple, dict, empty, None]"""
 
+        k = Square(10)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle("a", 12)
+            k.size = "a"
 
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle([1, 3], 12)
+            r = Square("a", 12)
 
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle(float('nan'), 12)
+            r = Square([1, 3], 12)
 
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle("float(inf)", 12)
+            r = Square(float('nan'), 12)
 
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle(None, 12)
+            r = Square("float(inf)", 12)
+
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r = Square(None, 12)
 
         with self.assertRaises(TypeError):
-            r = Rectangle()
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            r = Rectangle(1, "a")
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            r = Rectangle(1, float('nan'))
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            r = Rectangle(1, float('inf'))
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            r = Rectangle(1, [12, 10])
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            r = Rectangle(1, (1, 5))
-
-        with self.assertRaisesRegex(ValueError, "height must be > 0"):
-            r = Rectangle(10, -1)
+            r = Square()
 
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            r = Rectangle(1, 12, "a")
+            r = Square(1, "a")
 
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            r = Rectangle(1, 12, [1, 10, 19])
+            r = Square(1, [1, 10, 19])
 
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
-            r = Rectangle(1, 12, -2)
+            r = Square(1, -2)
 
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            r = Rectangle(10, 12, 1, "a")
+            r = Square(10, 1, "a")
 
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            r = Rectangle(10, 12, 1, {"key": "hello"})
+            r = Square(10, 1, {"key": "hello"})
 
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
-            r = Rectangle(1, 12, 10, -4)
+            r = Square(1, 12, -4)
 
     def test_dispaly(self):
         """ test case for display method
         - test case without x and y
         - test case using x and y """
-        expected = ("###\n###\n")
+        expected = ("###\n###\n###\n")
         capt_stdout = StringIO()
         sys.stdout = capt_stdout
-        a = Rectangle(3, 2)
+        a = Square(3)
         a.display()
         sys.stdout = sys.__stdout__
         self.assertEqual(capt_stdout.getvalue(), expected)
@@ -130,81 +108,82 @@ class TestSquare(unittest.TestCase):
         expected_2 = ("##\n##\n")
         capt2_stdout = StringIO()
         with redirect_stdout(capt2_stdout):
-            b = Rectangle(2, 2)
+            b = Square(2)
             b.display()
         self.assertEqual(capt2_stdout.getvalue(), expected_2)
 
         expected_3 = ("\n\n  ##\n  ##\n")
         capt3_stdout = StringIO()
         with redirect_stdout(capt3_stdout):
-            b = Rectangle(2, 2, 2, 2)
+            b = Square(2, 2, 2)
             b.display()
         self.assertEqual(capt3_stdout.getvalue(), expected_3)
 
-        expected_4 = (" ###\n ###\n")
+        expected_4 = (" ##\n ##\n")
         capt4_stdout = StringIO()
         with redirect_stdout(capt4_stdout):
-            b = Rectangle(3, 2, 1, 0)
+            b = Square(2, 1, 0)
             b.display()
         self.assertEqual(capt4_stdout.getvalue(), expected_4)
 
     def test_string(self):
         """ test case for __str__ magic method"""
-        k = Rectangle(10, 10, 0, 0, 15)
-        self.assertEqual(str(k), "[Rectangle] (15) 0/0 - 10/10")
+        k = Square(10, 0, 0, 15)
+        self.assertEqual(str(k), "[Square] (15) 0/0 - 10")
 
     def test_update(self):
         """ test case for update method
         - test case for args
         - test case for kwargs"""
-        la = Rectangle(10, 10, 10, 10, 1)
+        la = Square(10, 10, 10, 1)
         la.update()
-        self.assertEqual(str(la), "[Rectangle] (1) 10/10 - 10/10")
+        self.assertEqual(str(la), "[Square] (1) 10/10 - 10")
 
         la.update(8)
-        self.assertEqual(str(la), "[Rectangle] (8) 10/10 - 10/10")
+        self.assertEqual(str(la), "[Square] (8) 10/10 - 10")
 
         la.update(12, 3)
-        self.assertEqual(str(la), "[Rectangle] (12) 10/10 - 3/10")
+        self.assertEqual(str(la), "[Square] (12) 10/10 - 3")
 
         la.update(12, 3, 7)
-        self.assertEqual(str(la), "[Rectangle] (12) 10/10 - 3/7")
+        self.assertEqual(str(la), "[Square] (12) 7/10 - 3")
 
-        la.update(12, 3, 7, 10, 2)
-        self.assertEqual(str(la), "[Rectangle] (12) 10/2 - 3/7")
+        la.update(12, 3, 7, 2)
+        self.assertEqual(str(la), "[Square] (12) 7/2 - 3")
 
         la.update(12, 3, 7, 10, 2, 17)
-        self.assertEqual(str(la), "[Rectangle] (12) 10/17 - 3/7")
+        self.assertEqual(str(la), "[Square] (12) 7/17 - 3")
 
-        la.update(12, 3, 7, 10, 2, 17, width=100)
-        self.assertEqual(str(la), "[Rectangle] (12) 10/17 - 3/7")
+        la.update(12, 3, 7, 10, 2, 17, size=100)
+        self.assertEqual(str(la), "[Square] (12) 7/17 - 3")
 
-        la.update(12, width=100)
-        self.assertEqual(str(la), "[Rectangle] (12) 10/17 - 3/7")
+        la.update(12, size=100)
+        self.assertEqual(str(la), "[Square] (12) 7/17 - 3")
 
-        la.update(width=100)
-        self.assertEqual(str(la), "[Rectangle] (12) 10/17 - 100/7")
+        la.update(size=100)
+        self.assertEqual(str(la), "[Square] (12) 7/17 - 100")
 
-        la.update(id=11, width=100, x=5)
-        self.assertEqual(str(la), "[Rectangle] (11) 5/17 - 100/7")
+        la.update(id=11, size=100, x=5)
+        self.assertEqual(str(la), "[Square] (11) 5/17 - 100")
 
     def test_to_dict(self):
         """ test cases for to_dictionary method """
 
-        r1 = Rectangle(10, 2, 1, 9)
+        r1 = Square(10, 2, 1, 13)
         with self.assertRaises(
                 TypeError,
                 msg="to_dictionary() takes 1\
                         positional argument but 2 were given"):
             r1_dictionary = r1.to_dictionary(12)
+
         r1_dictionary = r1.to_dictionary()
         self.assertTrue(type(r1_dictionary) == dict)
-        self.assertTrue(
-                r1_dictionary ==
-                {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10})
-        r2 = Rectangle(15, 7, 0, 0, 18)
+        self.assertEqual(
+                r1_dictionary,
+                {'x': 2, 'y': 1, 'id': 13, 'size': 10})
+        r2 = Square(15, 7, 0)
         r2.update(**r1_dictionary)
-        self.assertEqual(str(r2), "[Rectangle] (1) 1/9 - 10/2")
+        self.assertEqual(str(r2), "[Square] (13) 2/1 - 10")
 
 
 if __name__ == "__main__":

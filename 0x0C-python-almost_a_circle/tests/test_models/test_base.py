@@ -203,5 +203,5 @@ class TestBase(unittest.TestCase):
                 self.assertFalse(id(b) == id(rect))
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     unittest.main()
