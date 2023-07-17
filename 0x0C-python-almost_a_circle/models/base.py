@@ -64,12 +64,13 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """ creating new instance with given attributes """
-        if cls.__name__ == 'Square':
-            new_in = cls(1)
-        elif cls.__name__ == 'Rectangle':
-            new_in = cls(1, 1)
-        new_in.update(**dictionary)
-        return new_in
+        if dictionary is not None:
+            if cls.__name__ == 'Square':
+                new_in = cls(2)
+            elif cls.__name__ == 'Rectangle':
+                new_in = cls(2, 2)
+            new_in.update(**dictionary)
+            return new_in
 
     @classmethod
     def load_from_file(cls):
