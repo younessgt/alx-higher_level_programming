@@ -66,7 +66,7 @@ class Base:
         """ creating new instance with given attributes """
         if cls.__name__ == 'Square':
             new_in = cls(2)
-        if cls.__name__ == 'Rectangle':
+        elif cls.__name__ == 'Rectangle':
             new_in = cls(2, 2)
         new_in.update(**dictionary)
         return new_in
