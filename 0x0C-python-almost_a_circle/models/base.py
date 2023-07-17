@@ -4,6 +4,7 @@ import json
 import ast
 import os
 import csv
+from turtle import *
 
 
 class Base:
@@ -127,3 +128,32 @@ class Base:
                 new_in = cls.create(**new_di)
                 final_list.append(new_in)
         return final_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        colors = ["#4AAFD5", "#91B187", "#E7A339",
+                  "#B2456E", "#00246B", "#552619"]
+        j = 0
+        for re_inst in list_rectangles:
+            up()
+            goto(re_inst.x, re_inst.y)
+            down()
+            color(colors[j])
+            # speed(1)
+            for i in range(2):
+                forward(re_inst.width)
+                right(90)
+                forward(re_inst.height)
+                right(90)
+            j += 1
+        for sq_inst in list_squares:
+            up()
+            goto(sq_inst.x, sq_inst.y)
+            down()
+            color(colors[j])
+            # speed(1)
+            for i in range(4):
+                forward(sq_inst.width)
+                right(90)
+            j += 1
+        done()
