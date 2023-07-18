@@ -28,7 +28,6 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """ updation the attributes """
-
         if len(args) != 0:
             for idx, value in enumerate(args):
                 if idx == 0:

@@ -36,7 +36,6 @@ class Base:
         k = []
         with open(file_name, "w") as wf:
             if list_objs is None or len(list_objs) == 0:
-                # Method 2
                 wf.write(cls.to_json_string(None))
             else:
                 for i in list_objs:
@@ -80,7 +79,7 @@ class Base:
             """ creating a csv writer object"""
             csv_writer = csv.writer(wf)
             if list_objs is None or len(list_objs) == 0:
-                new_list = []
+                wf.write("[]")
             else:
                 for i in list_objs:
                     if cls.__name__ == 'Rectangle':
