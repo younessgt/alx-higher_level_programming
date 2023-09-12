@@ -9,3 +9,8 @@ exports.nbOccurences = function (list, searchElement) {
   }
   return counter;
 };
+/* we can use also the reduce method
+exports.nbOccurences = function (list, searchElement) {
+  return list.reduce((counter, elem) => { return counter === elem ? counter + 1 : counter }, 0);
+};
+*/
