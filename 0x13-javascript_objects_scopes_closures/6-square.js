@@ -8,10 +8,11 @@ class Square extends FirstSquare {
     } else {
       let temp = this.height;
       while (temp > 0) {
-        console.log('C'.repeat(this.width));
+        console.log(c.repeat(this.width));
         temp--;
-      }
     }
+    }
+
   }
 }
 module.exports = Square;
