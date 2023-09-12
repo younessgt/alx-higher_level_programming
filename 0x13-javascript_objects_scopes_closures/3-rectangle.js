@@ -7,6 +7,7 @@ class Rectangle {
       this.height = h;
     }
   }
+
   print () {
     while (this.height > 0) {
       console.log('X'.repeat(this.width));
