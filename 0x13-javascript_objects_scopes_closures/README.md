@@ -1,0 +1,1 @@
+This directory is for JavaScript - Objects, Scopes and Closures
