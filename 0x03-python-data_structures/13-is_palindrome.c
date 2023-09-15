@@ -5,8 +5,8 @@
 listint_t *rev(listint_t **head)
 {
 	listint_t *temp, *current, *prev = NULL;
-	temp = *head;
 
+	temp = *head;
 	if (*head == NULL)
 		return (NULL);
 	while (temp != NULL)
@@ -22,12 +22,13 @@ listint_t *rev(listint_t **head)
 int is_palindrome(listint_t **head)
 {
 	listint_t *copy;
+
 	if (head == NULL)
 		return (0);
 	copy = rev(head);
 	if (copy == NULL)
 		return (1);
-	while(*head != NULL)
+	while (*head != NULL)
 	{
 		if (copy->n == (*head)->n)
 		{
