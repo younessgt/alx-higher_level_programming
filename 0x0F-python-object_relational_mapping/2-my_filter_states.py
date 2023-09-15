@@ -13,8 +13,9 @@ if __name__ == "__main__":
     cur = db.cursor()  # cursor object
     cur.execute(
         "SELECT * FROM states WHERE name =  \
-            '{}' ORDER BY id",
-        format(argv[4]),
+            '{}' ORDER BY id".format(
+            argv[4]
+        )
     )
     res = cur.fetchall()  # retrieving a list of tuples
     for elem in res:
