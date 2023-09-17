@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""script that creates the State “California” with the City “San Francisco” 
+"""script that creates the State “California” with the City “San Francisco”
 from the database hbtn_0e_100_usa"""
 
 if __name__ == "__main__":
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     california = State(name="California")
     san_Fran = City(name="San Francisco")
     # cities is an attribute of California object
-    california.cities.append(san_Fran) 
+    california.cities.append(san_Fran)
     session.add(california)
     session.commit()
     session.close()
