@@ -13,7 +13,7 @@ if __name__ == "__main__":
         "mysql+mysqldb://{}:{}@localhost/{}".format(argv[1], argv[2], argv[3]),
         pool_pre_ping=True,
     )
-    Base.metadata.createall(engine)
+    Base.metadata.create_all(engine)
     # creating a Sess class for interactiong with database
     Session_class = sessionmaker(bind=engine)
     # create a session
