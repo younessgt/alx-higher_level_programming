@@ -23,6 +23,5 @@ if __name__ == "__main__":
     # cities is an attribute of California object
     california.cities.append(san_Fran) 
     session.add(california)
-    session.add(san_Fran)
     session.commit()
     session.close()
