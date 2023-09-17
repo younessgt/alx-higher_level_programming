@@ -18,7 +18,7 @@ if __name__ == "__main__":
     Session_class = sessionmaker(bind=engine)
     # create a session
     session = Session_class()
-    california = State(name="Californi")
+    california = State(name="California")
     san_Fran = City(name="San Francisco")
     # cities is an attribute of California object
     california.cities.append(san_Fran) 
