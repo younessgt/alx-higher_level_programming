@@ -22,5 +22,5 @@ if __name__ == "__main__":
     for state_obj in state:
         print(f"{state_obj.id}: {state_obj.name}")
         for city_obj in state_obj.cities:
-            print(f"\t{city_obj.id}: {city_obj.name}")
+            print(f"    {city_obj.id}: {city_obj.name}")
     session.close()
