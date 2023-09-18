@@ -17,7 +17,8 @@ if __name__ == "__main__":
     # create a session
     session = Session_class()
     # retreive all states ordred by state id
-    state = session.query(State.name, City.id, City.name).join(City)
-    for elem in state:
-        print(f"{elem[0]}: ({elem[1]}) {elem[2]}")
+    state_city = session.query(City, State).filter(
+            City.state_id == State.id).order_by(City.id).all()
+    for city, state in state_city:
+        print(f"{state.name}: ({city.id}) {city.name}")
     session.close()
