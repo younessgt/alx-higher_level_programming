@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" this script send a post request the the url with the email as a parameter
+and displays the body of the response (decoded in utf-8)
+"""
 from urllib.request import urlopen, Request
 from urllib.parse import urlencode
 from sys import argv
