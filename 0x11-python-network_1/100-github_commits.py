@@ -9,6 +9,7 @@ if __name__ == "__main__":
     res = requests.get("https://api.github.com/repos/{}/{}/commits".format(
         argv[2], argv[1]))
     result = res.json()
+    print(result)
     for i in range(10):
         print("{}: {}".format(
                 result[i].get("sha"),
