@@ -6,8 +6,7 @@ const url = process.argv[2];
 request(url, (err, response, body) => {
   if (err) {
     console.error(err);
-  }
-  if (!err && response.statusCode === 200) {
+  } else {
     const data = JSON.parse(body);
     const results = data.results;
     for (const obj of results) {
