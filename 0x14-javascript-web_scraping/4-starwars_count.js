@@ -12,12 +12,11 @@ request(url, (err, response, body) => {
     for (const obj of results) {
       const characters = obj.characters;
       for (const character of characters) {
-        const url2 = 'https://swapi-api.alx-tools.com/api/people/18/';
-        if (character === url2) {
+        if (character.includes('18')) {
           count += 1;
         }
       }
     }
-    console.log('' + count);
   }
+   console.log(count);
 });
